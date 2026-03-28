@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stark Movies & Animations - Ugandan Streaming</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #ffcc00;
+            --primary-dark: #e6b800;
+            --secondary: #1a1e2b;
+            --dark: #0a0c14;
+            --darker: #05070a;
+            --card-bg: #1e2434;
+            --text: #ffffff;
+            --text-muted: #a0a8b8;
+            --success: #28a745;
+            --danger: #dc3545;
+            --download: #17a2b8;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* App Container */
+        .app {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            background: var(--darker);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(255,204,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ffcc00, #ffaa00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: block;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a i {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .nav-links a:hover i {
+            color: var(--dark);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border-radius: 50px;
+            padding: 5px 15px;
+            border: 1px solid rgba(255,204,0,0.3);
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            padding: 10px;
+            color: var(--text);
+            width: 250px;
+            outline: none;
+        }
+
+        .search-bar button {
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px;
+            flex: 1;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(90deg, var(--darker) 0%, rgba(10,12,20,0.8) 100%), url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1925&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            padding: 60px 50px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,204,0,0.3);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-content .highlight {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255,204,0,0.3);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(40,167,69,0.3);
+        }
+
+        .btn-download {
+            background: var(--download);
+            color: white;
+        }
+
+        .btn-download:hover {
+            background: #138496;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(23,162,184,0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        /* Categories */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .section-header h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+        }
+
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .category-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255,204,0,0.2);
+        }
+
+        .category-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .category-card h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .category-card span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Movie Grid */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .movie-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(255,204,0,0.2);
+        }
+
+        .movie-thumbnail {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .movie-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .movie-card:hover .movie-thumbnail img {
+            transform: scale(1.1);
+        }
+
+        .movie-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            gap: 10px;
+        }
+
+        .movie-card:hover .movie-overlay {
+            opacity: 1;
+        }
+
+        .movie-overlay .btn {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+
+        .movie-info {
+            padding: 15px;
+            flex: 1;
+        }
+
+        .movie-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-meta {
+            display: flex;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .vj-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .quality-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--success);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .rating {
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        .movie-actions {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            border-top: 1px solid rgba(255,204,0,0.2);
+        }
+
+        .movie-actions .btn {
+            padding: 8px;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        /* VJ Section */
+        .vj-section {
+            background: linear-gradient(135deg, var(--secondary), var(--darker));
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            border: 1px solid rgba(255,204,0,0.2);
+        }
+
+        .vj-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .vj-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .vj-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .vj-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), #ffaa00);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--dark);
+            border: 4px solid var(--primary);
+        }
+
+        .vj-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .vj-handle {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .vj-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .vj-stats i {
+            color: var(--primary);
+            margin-right: 5px;
+        }
+
+        /* Movie Player Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 1000px;
+            background: var(--darker);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid var(--primary);
+        }
+
+        .modal-header {
+            padding: 20px;
+            background: var(--card-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,204,0,0.3);
+        }
+
+        .modal-header h2 {
+            color: var(--primary);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        .video-player {
+            width: 100%;
+            height: 500px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-placeholder {
+            text-align: center;
+        }
+
+        .video-placeholder i {
+            font-size: 5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .video-placeholder p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .movie-details {
+            padding: 20px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+            border-top: 1px solid rgba(255,204,0,0.2);
+            flex-wrap: wrap;
+        }
+
+        .modal-actions .btn {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--darker);
+            padding: 60px 30px 30px;
+            margin-top: 50px;
+            border-top: 2px solid rgba(255,204,0,0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3000;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--card-bg);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--success);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            z-index: 4000;
+            animation: slideIn 0.3s ease;
+        }
+
+        .toast.show {
+            display: flex;
+        }
+
+        .toast i {
+            font-size: 1.5rem;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .search-bar input {
+                width: 150px;
+            }
+            
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-bar {
+                width: 100%;
+            }
+            
+            .search-bar input {
+                width: 100%;
+            }
+            
+            .hero-banner {
+                padding: 30px 20px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+            
+            .movie-overlay {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Download started!</span>
+    </div>
+
+    <!-- Movie Player Modal -->
+    <div class="modal" id="movieModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalMovieTitle">Now Playing</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="video-player" id="videoPlayer">
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle"></i>
+                    <p>Click play to start watching</p>
+                    <button class="btn btn-primary" onclick="playVideo()">
+                        <i class="fas fa-play"></i> Play Now
+                    </button>
+                </div>
+            </div>
+            <div class="movie-details" id="movieDetails">
+                <!-- Movie details will be inserted here -->
+            </div>
+            <div class="modal-actions" id="modalActions">
+                <!-- Actions will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>STARK MOVIES</h1>
+                    <span>& ANIMATIONS</span>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#" class="active" onclick="showSection('home')"><i class="fas fa-home"></i> Home</a>
+                    <a href="#" onclick="showSection('movies')"><i class="fas fa-film"></i> Movies</a>
+                    <a href="#" onclick="showSection('animations')"><i class="fas fa-robot"></i> Animations</a>
+                    <a href="#" onclick="showSection('vjs')"><i class="fas fa-microphone"></i> VJs</a>
+                    <a href="#" onclick="showSection('categories')"><i class="fas fa-th-large"></i> Categories</a>
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search movies, animations..." id="searchInput">
+                    <button onclick="searchContent()"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="user-menu">
+                    <i class="fas fa-bell"></i>
+                    <div class="user-icon">U</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Home Section -->
+            <div id="homeSection">
+                <!-- Hero Banner -->
+                <div class="hero-banner">
+                    <div class="hero-content">
+                        <h2>Best <span class="highlight">Ugandan Translated</span> Movies & Animations</h2>
+                        <p>Watch the latest movies and animations translated by VJ Junior, VJ Icep, and VJ Kevo. All in one place!</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="playFeatured()">
+                                <i class="fas fa-play"></i> Watch Now
+                            </button>
+                            <button class="btn btn-download" onclick="downloadFeatured()">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            <button class="btn btn-outline" onclick="showSection('vjs')">
+                                <i class="fas fa-users"></i> Meet Our VJs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="section-header">
+                    <h3>Browse Categories</h3>
+                    <a href="#" class="view-all" onclick="showSection('categories')">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="category-grid">
+                    <div class="category-card" onclick="filterCategory('action')">
+                        <i class="fas fa-fist-raised"></i>
+                        <h4>Action</h4>
+                        <span>24 Movies</span>
+                    </div>
+                    <div class="category-card" onclick="filterCategory('comedy')">
+                        <i class="fas fa-laugh"></i>
+                        <h4>Comedy</h4>
+                        <span>18 Movies</span>
+                    </div>
+                    <div class="category-card" onclick="filterCategory('animation')">
+                        <i class="fas fa-dragon"></i>
+                        <h4>Animation</h4>
+                        <span>15 Movies</span>
+                    </div>
+                    <div class="category-card" onclick="filterCategory('drama')">
+                        <i class="fas fa-mask"></i>
+                        <h4>Drama</h4>
+                        <span>12 Movies</span>
+                    </div>
+                    <div class="category-card" onclick="filterCategory('family')">
+                        <i class="fas fa-heart"></i>
+                        <h4>Family</h4>
+                        <span>10 Movies</span>
+                    </div>
+                    <div class="category-card" onclick="filterCategory('horror')">
+                        <i class="fas fa-ghost"></i>
+                        <h4>Horror</h4>
+                        <span>8 Movies</span>
+                    </div>
+                </div>
+
+                <!-- Latest Movies -->
+                <div class="section-header">
+                    <h3>Latest Translated Movies</h3>
+                    <a href="#" class="view-all" onclick="showSection('movies')">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="movie-grid" id="latestMovies">
+                    <!-- Movies will be loaded here via JavaScript -->
+                </div>
+
+                <!-- VJ Section -->
+                <div class="vj-section">
+                    <div class="section-header">
+                        <h3>Our Featured VJs</h3>
+                        <a href="#" class="view-all" onclick="showSection('vjs')">Meet All VJs <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="vj-grid">
+                        <div class="vj-card">
+                            <div class="vj-avatar">Jr</div>
+                            <h3>VJ Junior</h3>
+                            <div class="vj-handle">@vjjunior</div>
+                            <div class="vj-stats">
+                                <span><i class="fas fa-film"></i> 245 Movies</span>
+                                <span><i class="fas fa-users"></i> 125K Fans</span>
+                            </div>
+                            <p>King of Ugandan translations, specializing in action movies and animations.</p>
+                            <button class="btn btn-outline" style="margin-top: 15px;" onclick="showVJContent('junior')">
+                                <i class="fas fa-play"></i> View Content
+                            </button>
+                        </div>
+
+                        <div class="vj-card">
+                            <div class="vj-avatar">IP</div>
+                            <h3>VJ Icep</h3>
+                            <div class="vj-handle">@vjicep</div>
+                            <div class="vj-stats">
+                                <span><i class="fas fa-film"></i> 189 Movies</span>
+                                <span><i class="fas fa-users"></i> 98K Fans</span>
+                            </div>
+                            <p>Known for fast-paced Uglish commentary and hilarious translations.</p>
+                            <button class="btn btn-outline" style="margin-top: 15px;" onclick="showVJContent('icep')">
+                                <i class="fas fa-play"></i> View Content
+                            </button>
+                        </div>
+
+                        <div class="vj-card">
+                            <div class="vj-avatar">KV</div>
+                            <h3>VJ Kevo</h3>
+                            <div class="vj-handle">@vjkevo</div>
+                            <div class="vj-stats">
+                                <span><i class="fas fa-film"></i> 156 Movies</span>
+                                <span><i class="fas fa-users"></i> 87K Fans</span>
+                            </div>
+                            <p>Specializes in family-friendly animations and cartoon dubs.</p>
+                            <button class="btn btn-outline" style="margin-top: 15px;" onclick="showVJContent('kevo')">
+                                <i class="fas fa-play"></i> View Content
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular Animations -->
+                <div class="section-header">
+                    <h3>Popular Animations</h3>
+                    <a href="#" class="view-all" onclick="showSection('animations')">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="movie-grid" id="popularAnimations">
+                    <!-- Animations will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Movies Section (hidden by default) -->
+            <div id="moviesSection" style="display: none;">
+                <div class="section-header">
+                    <h3>All Translated Movies</h3>
+                    <div class="filter-options">
+                        <select class="btn btn-outline" style="padding: 8px;" onchange="filterMovies(this.value)">
+                            <option value="all">All VJs</option>
+                            <option value="junior">VJ Junior</option>
+                            <option value="icep">VJ Icep</option>
+                            <option value="kevo">VJ Kevo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="movie-grid" id="allMovies"></div>
+            </div>
+
+            <!-- Animations Section -->
+            <div id="animationsSection" style="display: none;">
+                <div class="section-header">
+                    <h3>All Animations</h3>
+                </div>
+                <div class="movie-grid" id="allAnimations"></div>
+            </div>
+
+            <!-- VJs Section -->
+            <div id="vjsSection" style="display: none;">
+                <!-- Content will be loaded here -->
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Stark Movies</h4>
+                    <p>Your number one destination for Ugandan translated movies and animations. Bringing the best of VJ culture to your screen.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" onclick="showSection('home')">Home</a></li>
+                        <li><a href="#" onclick="showSection('movies')">Movies</a></li>
+                        <li><a href="#" onclick="showSection('animations')">Animations</a></li>
+                        <li><a href="#" onclick="showSection('vjs')">VJs</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#" onclick="filterCategory('action')">Action</a></li>
+                        <li><a href="#" onclick="filterCategory('comedy')">Comedy</a></li>
+                        <li><a href="#" onclick="filterCategory('animation')">Animation</a></li>
+                        <li><a href="#" onclick="filterCategory('drama')">Drama</a></li>
+                        <li><a href="#" onclick="filterCategory('family')">Family</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +256 700 000000</li>
+                        <li><i class="fas fa-envelope"></i> info@starkmovies.ug</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2024 Stark Movies & Animations. All rights reserved. Best Ugandan Translated Movies.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Sample movie data with download links and qualities
+        const movies = [
+            {
+                id: 1,
+                title: "Fast & Furious: Kampala Drift",
+                vj: "VJ Junior",
+                vjId: "junior",
+                category: "action",
+                type: "movie",
+                year: 2024,
+                rating: 4.5,
+                views: "245K",
+                quality: "1080p",
+                size: "1.8 GB",
+                thumbnail: "https://images.unsplash.com/photo-1585951237318-9ea5e175b891?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                description: "Full Luganda translation with VJ Junior's signature style. Action packed!",
+                downloadUrl: "#",
+                videoUrl: "#"
+            },
+            {
+                id: 2,
+                title: "Black Panther: Katwe Version",
+                vj: "VJ Icep",
+                vjId: "icep",
+                category: "action",
+                type: "movie",
+                year: 2023,
+                rating: 4.8,
+                views: "312K",
+                quality: "4K",
+                size: "3.2 GB",
+                thumbnail: "https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                description: "Wakanda meets Kampala with VJ Icep's hilarious Uglish commentary.",
+                downloadUrl: "#",
+                videoUrl: "#"
+            },
+            {
+                id: 3,
+                title: "Frozen: Konyawara Version",
+                vj: "VJ Kevo",
+                vjId: "kevo",
+                category: "animation",
+                type: "animation",
+                year: 2024,
+                rating: 4.6,
+                views: "189K",
+                quality: "1080p",
+                size: "1.5 GB",
+                thumbnail: "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                description: "Elsa and Anna with Ugandan vibes. All songs translated in Uglish.",
+                downloadUrl: "#",
+                videoUrl: "#"
+            },
+            {
+                id: 4,
+                title: "Lion King: Simba Wa Kali",
+                vj: "VJ Junior & Kevo",
+                vjId: "junior",
+                category: "animation",
+                type: "animation",
+                year: 2023,
+                rating: 4.9,
+                views: "456K",
+                quality: "4K",
+                size: "2.8 GB",
+                thumbnail: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                description: "Dual VJ translation with Swahili & Luganda mix.",
+                downloadUrl: "#",
+                videoUrl: "#"
+            },
+            {
+                id: 5,
+                title: "Terminator: Luganda Dub",
+                vj: "VJ Icep",
+                vjId: "icep",
+                category: "action",
+                type: "movie",
+                year: 2024,
+                rating: 4.7,
+                views: "278K",
+                quality: "1080p",
+                size: "2.1 GB",
+                thumbnail: "https://images.unsplash.com/photo-1605806616949-1e87b487fc2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                description: "I'll be back... in Luganda! VJ Icep's most viewed translation.",
+                downloadUrl: "#",
+                videoUrl: "#"
+            },
+            {
+                id: 6,
+                title: "Tom & Jerry: Kampala Cats",
+                vj: "VJ Kevo",
+                vjId: "kevo",
+                category: "animation",
+                type: "animation",
+                year: 2024,
+                rating: 4.4,
+                views: "167K",
+                quality: "720p",
+                size: "950 MB",
+                thumbnail: "https://images.unsplash.com/photo-1543465077-db45d34b88a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                description: "Classic cartoon with Ugandan humor. Family favorite.",
+                downloadUrl: "#",
+                videoUrl: "#"
+            },
+            {
+                id: 7,
+                title: "John Wick: Kampala Chapter",
+                vj: "VJ Junior",
+                vjId: "junior",
+                category: "action",
+                type: "movie",
+                year: 2024,
+                rating: 4.9,
+                views: "389K",
+                quality: "4K",
+                size: "3.5 GB",
+                thumbnail: "https://images.unsplash.com/photo-1601024445129-e5b82f020549?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                description: "Baba Wick in Kampala! Full Luganda translation.",
+                downloadUrl: "#",
+                videoUrl: "#"
+            },
+            {
+                id: 8,
+                title: "Moana: Wanyana Version",
+                vj: "VJ Kevo",
+                vjId: "kevo",
+                category: "animation",
+                type: "animation",
+                year: 2023,
+                rating: 4.7,
+                views: "234K",
+                quality: "1080p",
+                size: "1.6 GB",
+                thumbnail: "https://images.unsplash.com/photo-1618336655558-8c3c5aecb33d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                description: "Moana's journey with Ugandan songs and humor.",
+                downloadUrl: "#",
+                videoUrl: "#"
+            }
+        ];
+
+        // Load content on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLatestMovies();
+            loadPopularAnimations();
+            loadAllMovies();
+            loadAllAnimations();
+        });
+
+        function showLoading() {
+            document.getElementById('loadingSpinner').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('loadingSpinner').style.display = 'none';
+            }, 500);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function showSection(section) {
+            showLoading();
+            
+            // Hide all sections
+            document.getElementById('homeSection').style.display = 'none';
+            document.getElementById('moviesSection').style.display = 'none';
+            document.getElementById('animationsSection').style.display = 'none';
+            document.getElementById('vjsSection').style.display = 'none';
+            
+            // Show selected section
+            if(section === 'home') {
+                document.getElementById('homeSection').style.display = 'block';
+            } else if(section === 'movies') {
+                document.getElementById('moviesSection').style.display = 'block';
+                loadAllMovies();
+            } else if(section === 'animations') {
+                document.getElementById('animationsSection').style.display = 'block';
+                loadAllAnimations();
+            } else if(section === 'vjs') {
+                document.getElementById('vjsSection').style.display = 'block';
+                loadVJDetails();
+            }
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function loadLatestMovies() {
+            const container = document.getElementById('latestMovies');
+            const latestMovies = movies.slice(0, 4);
+            
+            container.innerHTML = latestMovies.map(movie => createMovieCard(movie)).join('');
+        }
+
+        function loadPopularAnimations() {
+            const container = document.getElementById('popularAnimations');
+            const animations = movies.filter(m => m.type === 'animation').slice(0, 4);
+            
+            container.innerHTML = animations.map(movie => createMovieCard(movie)).join('');
+        }
+
+        function loadAllMovies() {
+            const container = document.getElementById('allMovies');
+            const allMovies = movies.filter(m => m.type === 'movie');
+            
+            container.innerHTML = allMovies.map(movie => createMovieCard(movie)).join('');
+        }
+
+        function loadAllAnimations() {
+            const container = document.getElementById('allAnimations');
+            const animations = movies.filter(m => m.type === 'animation');
+            
+            container.innerHTML = animations.map(movie => createMovieCard(movie)).join('');
+        }
+
+        function createMovieCard(movie) {
+            return `
+                <div class="movie-card">
+                    <div class="movie-thumbnail">
+                        <img src="${movie.thumbnail}" alt="${movie.title}" loading="lazy">
+                        <div class="vj-badge">${movie.vj}</div>
+                        <div class="quality-badge">${movie.quality}</div>
+                        <div class="movie-overlay">
+                            <button class="btn btn-primary" onclick="watchMovie(${movie.id})">
+                                <i class="fas fa-play"></i> Watch
+                            </button>
+                            <button class="btn btn-download" onclick="downloadMovie(${movie.id})">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h4>${movie.title}</h4>
+                        <div class="movie-meta">
+                            <span><i class="far fa-calendar"></i> ${movie.year}</span>
+                            <span><i class="far fa-eye"></i> ${movie.views}</span>
+                            <span><i class="fas fa-hdd"></i> ${movie.size}</span>
+                        </div>
+                        <div class="rating">
+                            ${getStarRating(movie.rating)}
+                        </div>
+                    </div>
+                    <div class="movie-actions">
+                        <button class="btn btn-primary" onclick="watchMovie(${movie.id})">
+                            <i class="fas fa-play"></i> Watch
+                        </button>
+                        <button class="btn btn-download" onclick="downloadMovie(${movie.id})">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getStarRating(rating) {
+            let stars = '';
+            for(let i = 1; i <= 5; i++) {
+                if(i <= Math.floor(rating)) {
+                    stars += '<i class="fas fa-star"></i>';
+                } else if(i - 0.5 <= rating) {
+                    stars += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
+                }
+            }
+            stars += ` <span style="color: var(--text-muted);">(${rating})</span>`;
+            return stars;
+        }
+
+        function watchMovie(movieId) {
+            const movie = movies.find(m => m.id === movieId);
+            if(movie) {
+                document.getElementById('modalMovieTitle').textContent = movie.title;
+                document.getElementById('movieDetails').innerHTML = `
+                    <p><strong>Description:</strong> ${movie.description}</p>
+                    <p><strong>VJ:</strong> ${movie.vj}</p>
+                    <p><strong>Year:</strong> ${movie.year}</p>
+                    <p><strong>Quality:</strong> ${movie.quality}</p>
+                    <p><strong>File Size:</strong> ${movie.size}</p>
+                    <p><strong>Views:</strong> ${movie.views}</p>
+                `;
+                document.getElementById('modalActions').innerHTML = `
+                    <button class="btn btn-primary" onclick="playVideo()">
+                        <i class="fas fa-play"></i> Watch Now
+                    </button>
+                    <button class="btn btn-download" onclick="downloadMovie(${movie.id})">
+                        <i class="fas fa-download"></i> Download (${movie.size})
+                    </button>
+                    <button class="btn btn-outline" onclick="closeModal()">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                `;
+                document.getElementById('movieModal').classList.add('active');
+            }
+        }
+
+        function downloadMovie(movieId) {
+            const movie = movies.find(m => m.id === movieId);
+            if(movie) {
+                showToast(`Downloading ${movie.title} (${movie.size})`);
+                // In a real app, this would trigger actual download
+                console.log(`Downloading: ${movie.title}`);
+                
+                // Simulate download with a link
+                const link = document.createElement('a');
+                link.href = movie.downloadUrl;
+                link.download = `${movie.title}.mp4`;
+                link.click();
+            }
+        }
+
+        function downloadAll() {
+            showToast("Preparing download package...");
+            // In a real app, this would download multiple files
+            setTimeout(() => {
+                showToast("Download started for selected items");
+            }, 1500);
+        }
+
+        function closeModal() {
+            document.getElementById('movieModal').classList.remove('active');
+            // Reset video player
+            document.getElementById('videoPlayer').innerHTML = `
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle"></i>
+                    <p>Click play to start watching</p>
+                    <button class="btn btn-primary" onclick="playVideo()">
+                        <i class="fas fa-play"></i> Play Now
+                    </button>
+                </div>
+            `;
+        }
+
+        function playVideo() {
+            const videoPlayer = document.getElementById('videoPlayer');
+            videoPlayer.innerHTML = `
+                <video width="100%" height="100%" controls autoplay>
+                    <source src="#" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            `;
+            showToast("Video is now playing");
+        }
+
+        function playFeatured() {
+            watchMovie(1); // Play the first movie
+        }
+
+        function downloadFeatured() {
+            downloadMovie(1);
+        }
+
+        function searchContent() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if(searchTerm) {
+                showLoading();
+                const results = movies.filter(m => 
+                    m.title.toLowerCase().includes(searchTerm) || 
+                    m.vj.toLowerCase().includes(searchTerm) ||
+                    m.category.toLowerCase().includes(searchTerm)
+                );
+                
+                if(results.length > 0) {
+                    showToast(`Found ${results.length} results`);
+                    // In a real app, this would display search results
+                    console.log(results);
+                } else {
+                    showToast("No results found");
+                }
+            }
+        }
+
+        function filterCategory(category) {
+            showLoading();
+            showToast(`Showing ${category} movies and animations`);
+            // In a real app, this would filter the content
+        }
+
+        function filterMovies(vj) {
+            showLoading();
+            if(vj === 'all') {
+                loadAllMovies();
+            } else {
+                const container = document.getElementById('allMovies');
+                const filtered = movies.filter(m => m.type === 'movie' && m.vjId === vj);
+                container.innerHTML = filtered.map(movie => createMovieCard(movie)).join('');
+                showToast(`Showing ${filtered.length} movies by ${vj}`);
+            }
+        }
+
+        function showVJContent(vj) {
+            showLoading();
+            showSection('movies');
+            filterMovies(vj);
+        }
+
+        function loadVJDetails() {
+            const vjSection = document.getElementById('vjsSection');
+            vjSection.innerHTML = `
+                <div class="section-header">
+                    <h3>Our VJs</h3>
+                </div>
+                <div class="vj-grid">
+                    <div class="vj-card">
+                        <div class="vj-avatar">Jr</div>
+                        <h3>VJ Junior</h3>
+                        <div class="vj-handle">@vjjunior</div>
+                        <div class="vj-stats">
+                            <span><i class="fas fa-film"></i> 245 Movies</span>
+                            <span><i class="fas fa-users"></i> 125K Fans</span>
+                        </div>
+                        <p>The pioneer of Ugandan movie translations. Known for action movies and dramatic dubs.</p>
+                        <div style="margin-top: 20px;">
+                            <h4>Popular Translations:</h4>
+                            <ul style="list-style: none; margin-top: 10px;">
+                                <li>• Fast & Furious Series</li>
+                                <li>• Marvel Movies</li>
+                                <li>• DC Collection</li>
+                            </ul>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: 20px;">
+                            <button class="btn btn-primary" style="flex: 1;" onclick="showVJContent('junior')">
+                                <i class="fas fa-play"></i> Watch
+                            </button>
+                            <button class="btn btn-download" style="flex: 1;" onclick="downloadAll()">
+                                <i class="fas fa-download"></i> Download All
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="vj-card">
+                        <div class="vj-avatar">IP</div>
+                        <h3>VJ Icep</h3>
+                        <div class="vj-handle">@vjicep</div>
+                        <div class="vj-stats">
+                            <span><i class="fas fa-film"></i> 189 Movies</span>
+                            <span><i class="fas fa-users"></i> 98K Fans</span>
+                        </div>
+                        <p>The voice of Kampala. Famous for fast-paced Uglish commentary and comedy translations.</p>
+                        <div style="margin-top: 20px;">
+                            <h4>Popular Translations:</h4>
+                            <ul style="list-style: none; margin-top: 10px;">
+                                <li>• Terminator Series</li>
+                                <li>• Comedy Specials</li>
+                                <li>• Action Thrillers</li>
+                            </ul>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: 20px;">
+                            <button class="btn btn-primary" style="flex: 1;" onclick="showVJContent('icep')">
+                                <i class="fas fa-play"></i> Watch
+                            </button>
+                            <button class="btn btn-download" style="flex: 1;" onclick="downloadAll()">
+                                <i class="fas fa-download"></i> Download All
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="vj-card">
+                        <div class="vj-avatar">KV</div>
+                        <h3>VJ Kevo</h3>
+                        <div class="vj-handle">@vjkevo</div>
+                        <div class="vj-stats">
+                            <span><i class="fas fa-film"></i> 156 Movies</span>
+                            <span><i class="fas fa-users"></i> 87K Fans</span>
+                        </div>
+                        <p>The animation specialist. Brings cartoons to life with family-friendly Ugandan humor.</p>
+                        <div style="margin-top: 20px;">
+                            <h4>Popular Translations:</h4>
+                            <ul style="list-style: none; margin-top: 10px;">
+                                <li>• Disney Classics</li>
+                                <li>• Cartoon Network</li>
+                                <li>• Animated Movies</li>
+                            </ul>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: 20px;">
+                            <button class="btn btn-primary" style="flex: 1;" onclick="showVJContent('kevo')">
+                                <i class="fas fa-play"></i> Watch
+                            </button>
+                            <button class="btn btn-download" style="flex: 1;" onclick="downloadAll()">
+                                <i class="fas fa-download"></i> Download All
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('movieModal');
+            if(event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if(event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
